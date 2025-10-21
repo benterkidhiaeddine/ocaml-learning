@@ -1,0 +1,1 @@
+let est_diviseur n d = n mod d = 0
