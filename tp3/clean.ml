@@ -6,18 +6,29 @@ let rec invert lst =
   in 
   aux [] lst
 
+let rec found l a =
+  match l with 
+   | [] -> false
+   | h :: t -> h = a || found t a
 
-let clean l =
-  let rec aux acc tmp =
-    match tmp with
-    | [] -> invert acc
-    | [h] -> invert (h :: acc)
-    | h :: x :: t ->
-        if h = x then aux acc (x :: t)
-        else aux (h :: acc) (x :: t)
-  in
-  aux [] l
+let rec remove l a =
+  match l with
+   | [] -> []
+   | h :: t -> if h = a then
+    remove t a
+   else h :: remove t a
+
+
+
+let rec clean l =
+  match l with
+    | [] -> []
+    | h :: t -> if found t h then
+      clean (h :: remove t h)
+    else h :: clean t
 ;;
-let () = assert (clean [1;1;4;5;5;4] =  [1;4;5;4]);;
-let () =  assert (clean[1;1;2;7;8;7;9;4;5;5;4] = [1;2;7;8;7;9;4;5;4])
+clean [1;1;4;5;5;4];;
+let () = assert (clean [1;1;4;5;5;4] =  [1;4;5]);;
+clean[1;1;2;7;8;7;9;4;5;5;4];;
+let () =  assert (clean[1;1;2;7;8;7;9;4;5;5;4] = [1;2;7;8;9;4;5])
 
