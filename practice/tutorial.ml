@@ -1,0 +1,8 @@
+let rec factorial n =
+  if n <= 1 then
+    1
+  else
+    factorial (n-1) * n
+
+let () =
+  Printf.printf "%i\n" (factorial 10);
