@@ -1,11 +1,3 @@
-let rec invert lst = 
-  let rec aux acc lst =
-  match lst with
-  | [] -> acc
-  | h :: t -> aux  (h :: acc) t    
-  in 
-  aux [] lst
-
 let rec found l a =
   match l with 
    | [] -> false
