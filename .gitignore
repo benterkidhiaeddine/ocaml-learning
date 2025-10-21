@@ -1,0 +1,14 @@
+# Ignore files for ocaml projects
+*.cmi
+*.cmo
+*.cmx
+*.byte
+*.o
+*.annot
+*.out
+*.exe
+*.log
+*.merlin
+*.cmxs
+*.cma
+*.cmxa
