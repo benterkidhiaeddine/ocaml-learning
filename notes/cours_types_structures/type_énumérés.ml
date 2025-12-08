@@ -7,4 +7,4 @@ let inverse_color c =
   | Noir -> Blanc
   | Vert -> Rouge
   | Rouge -> Vert
-  
+
